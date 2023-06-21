@@ -72,13 +72,18 @@ nav {
     height: 7vh;
 }
 
+.upperHeigth {
+    transform: translateY(-250%);
+    transition: all 1s;
+}
+
 main nav ul {
     list-style: none;
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin: 0;
-    font-size: 20px;
+    font-size: 24px;
     height: 100%;
 }
 
@@ -88,12 +93,16 @@ main nav ul li:after {
     border-bottom: solid 3px aliceblue;  
     transform: scaleX(0);
     transition: transform 200ms ease-in-out;
-    height: 100%;
 }
 
 main nav ul li:hover:after { 
     transform: scaleX(1);
     transform-origin: 0% 50%;
+    cursor: pointer;
+}
+
+main nav ul li:hover {
+    cursor: pointer;
 }
 
 footer {
@@ -119,4 +128,59 @@ main .image-card {
 
 .active {
     transform: translateX(0%);
+}
+
+.inactive {
+    transform: translateX(-100%);
+}
+
+.list-over {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    padding: 5px;
+    transition: transform 1s;
+    width: 25vh;
+    font-size: medium;
+}
+
+.loading-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    visibility: hidden;
+}
+
+.loading-card p {
+    font-size: 11px;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 50.5vw;
+    top: 13.5vh;
+}
+
+.loading-charge {
+    border: 8px solid rgb(128, 128, 128);
+    border-bottom: 8px solid aliceblue;
+    border-radius: 100%;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 50vw;
+    top: 10vh;
+    animation: infinite loading 4s ease-in;
+}
+
+@keyframes loading {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
 }
